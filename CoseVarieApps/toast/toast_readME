@@ -1,0 +1,21 @@
+In questo file viene mostrato l'utilizzo di toast e tooltip
+
+from kivymd.toast import toast
+
+toast permette di far apparire messaggi a schermo quando viene premuto un pulsante o per vedere un errore.
+funziona un po' come un pop up. Tu schiacci e lui compare, molto fico.
+in toast.py vi è un esempio una volta premuto un bottone.
+
+Inoltre si usa tooltip creando una nuova classe:
+
+<TooltipMDRaisedButton@MDRaisedButton+MDTooltip>:
+
+prima della @ è il nome che io voglio dare alla classe, dopo la @ tutte le classi che servono per crearla.
+In questo modo posso creare un bottone in cui se passo sopra il mouse compare una scritta (un po' come word)
+
+Si può dichiarare una classe con all'interno altre classi anche tramite python:
+
+"Qui vediamo un esempio di una classe che ha sia le proprietà del tooltip che dell'icona"
+class TooltipMDIconButton(MDIconButton, MDTooltip):
+    pass
+
