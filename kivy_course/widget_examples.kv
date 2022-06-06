@@ -1,0 +1,79 @@
+<WidgetExample>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos:self.pos
+    cols: 3
+    ToggleButton:
+        text: 'OFF'
+        on_state: root.on_toggle_botton_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        text: "cliccami"
+        on_press: root.on_button_click()
+    Label:
+        text: root.my_text
+        font_name: 'Arial'
+        font_size: '20dp'
+        color: 1, .5, 1, 1
+
+<CounterExample>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    cols: 3
+    ToggleButton:
+        id: toggle
+        text: 'OFF'
+        on_state: root.on_toggle_botton_state(self, incr)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        id: incr
+        text: 'INCR'
+        on_press: root.on_button_click(toggle)
+        disabled: True
+    Label:
+        text: root.my_text
+        font_name: 'Arial'
+        font_size: '20dp'
+        color: 1, .5, 1, 1
+    Switch:
+        id: switch
+        size_hint: None, 1
+        width: "100dp"
+        active: True
+        on_active: root.on_switch_active(self)
+    Slider:
+        id: slider
+        min: 0
+        max: 100
+        value: 50
+        on_value: root.display_slider(self, label_slider)
+        orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: label_slider
+            text: str(int(slider.value))
+            font_name: 'Arial'
+            font_size: '20dp'
+            color: 1, .5, 1, 1
+        ProgressBar:
+            max: 100
+            value: slider.value
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: "100dp"
+        text: 'foo'
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "Stupidpo: " + root.input_text

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chocolate cake</title>
+    <!-- Qua ci metto il mio CSS
+        Applico al body lo stile tra parentesi
+        .top, p#category{ -> Posso metterci anche più classi
+            background-color: #77DD77;
+        }
+        Applico top stile ovunque ci sia la class top
+        margin: top right bottom left
+        margin si può descrivere in pixel (px) o in percentuale della pagina (%)
+        padding: margini dall'elemento in questione
+        display: inline; -> applica al testo (lo sfondo ad esempio)
+        inline però ignora eventuali margini top e down, si risolve:
+        display: inline-block;
+        -> nelle righe sotto sto spostando il bordo del div che contiene recipe
+        Così da poter ammettere la sovrapposizione dei due blocchi.
+        div.pos_rec{
+            text-align: center;
+            margin-bottom: -20px;
+        }
+        -> si possono associare più classi nello stesso elemento
+        class="center category" -> adesso tutte le proprietà delle due classi saranno accettate
+        Se voglio applicare una proprietà a tutte le td di una tabella specifica uso:
+        table.info td{
+        }
+        Cioè: "All td of info table"
+    -->
+    <style>
+        body {
+            background-color: #8BA1BB;
+            font-family: Arial;
+        }
+        .top{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p#category {
+            background-color: black;
+            color: white;
+            display: inline-block;
+            margin-left: 30px;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        div.pos_rec{
+            text-align: center;
+            margin-bottom: -20px;
+        }
+
+        div.content{
+            background-color: white;
+            margin: 0% 5% 9% 5%;
+            padding: 30px
+        }
+        p.description {
+            text-align: center;
+            display: inline-block;
+            max-width: 400px
+        }
+
+        div.description{
+            text-align: center;
+        }
+
+        div.separator{
+            width: 100px;
+            height: 1px;
+            background-color: black;
+            margin-left: auto;
+            margin-right: auto;
+            }
+
+        .center{
+            width: 100%
+        }
+        div.info{
+            position: relative;
+        }
+        table.info{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            background-color: #6C829DB2;
+            height: 80px;
+        }
+
+        table.info td{
+            text-align: center;
+            vertical-align: top;
+            font-size: 12px;
+        }
+
+        table.info th{
+            text-align: center;
+            vertical-align: bottom;
+            padding-bottom: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pos_rec">
+        <p id="category">Recipe</p>
+    </div>
+    <div class="content">
+        <h1 class="top">Chocolate Cake</h1>
+        <div class="separator"></div>
+        <div class="description">
+            <p class="description"> Questa è la mia inventatissima ricetta per la torta al cioccolato. Si accede dall'immagine dalla torta, direi super chiaro</p>
+        </div>
+        <br>
+        <!--Adesso sovrapponiamo gli elementi
+            La prima cosa da fare e mettere quello che vogliamo sovrapporre
+            nell stesso div con la proprietà position in relative
+            che permette di muoversi relativamente all'interno del div
+            qualunque elemento
+            <table border="3" style="position: absolute; bottom: 0;">
+            con questo comando la mettiamo esattamente dove vogliamo
+            COSA CARINA:
+            il colore in esadecimale a tre coppie di valori r-g-b se aggiungo la quarta sarà l'opacità -->
+        <div class="info">
+            <img class="center" style="display:block" src="https://www.buttalapasta.it/wp-content/uploads/2017/10/torta-cioccolato.jpg">
+            <table class="info" >
+                <tr>
+                    <th>Difficoltà</th>
+                    <th>Preparazione</th>
+                    <th>Cottura</th>
+                    <th>Tempo Totale</th>
+                </tr>
+
+                <tr>
+                    <td>Easy</td><td>10 min</td><td>15 min</td><td>25 min</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <h2>Ingredients</h2>
+        <ul>
+            <li>Cioccolato: 500gr</li>
+            <li>Panna: 500gr</li>
+            <li>Uova: 4</li>
+            <li>Farina: 200gr</li>
+        </ul>
+        <br>
+        <h2>Preparazione: </h2>
+        <ol>
+            <li>Mettere gli ingredienti in una ciotola;</li>
+            <li>Mischiare con vigore;</li>
+            <li>Imburrare una teglia;</li>
+            <li>Cuocere in forno, a sentimento.</li>
+        </ol>
+</div>
+</body>
+</html>
+
+
+<!--
+BBA1BB

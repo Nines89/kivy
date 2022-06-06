@@ -1,0 +1,282 @@
+#ma vediamo un po' cosa sono queste Tab e come si creano
+
+<LayoutExamplesTabs@TabbedPanel>:
+    do_default_tab: False #elimina la tab di default, quindi ci sta sempre bene
+    TabbedPanelItem:
+        text: "Widget"
+        MainWidget:
+    TabbedPanelItem:
+        text: "Box"
+        BoxLayoutExample:
+    TabbedPanelItem:
+        text: "Box2"
+        BoxLayoutExampleSec2:
+    TabbedPanelItem:
+        text: "Anchor"
+        AnchorLayoutExample:
+    TabbedPanelItem:
+        text: "Grid"
+        GridLayoutExample:
+    TabbedPanelItem:
+        text: "Stack"
+        ScrollViewExample:
+    TabbedPanelItem:
+        text: "Page Layout"
+        PageLayoutExample
+
+<MainWidget>:
+    Button:
+        text: 'Hello'
+        size: 400,200
+        pos: 10,20
+
+    Button:
+        text: 'Hello2'
+        size: "40dp", "20dp"
+        pos: "100dp", "200dp"
+    Label:
+        text: 'Hello2'
+        size: "40dp", "20dp"
+        pos: "400dp", "400dp"
+        color: 100.0/255.0, 150.0/255.0, 133.0/255.0, 1
+##############################################################
+<BoxLayoutExample>:
+    orientation: 'vertical'
+    Button:
+        text: 'A'
+        size_hint: .5, .5
+        pos_hint: {'x': .5, 'y': .4}
+    Button:
+        text: 'B'
+        size_hint: None, None
+
+        width: "100dp"
+        height: "40dp"
+
+    Button:
+        text: 'C'
+##############################################################
+<BoxLayoutExampleSec2>:
+    orientation: 'horizontal'
+    Button:
+        text: 'A'
+        size_hint: .5, .5
+        pos_hint: {'x': .5, 'y': .4}
+    Button:
+        text: 'B'
+        size_hint: None, None
+        width: "100dp"
+        height: "40dp"
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: "10dp"
+        Button:
+            text: 'C1'
+        Button:
+            text: 'C2'
+        Button:
+            text: 'C3'
+        Button:
+            text: 'C4'
+##############################################################
+<AnchorLayoutExample>:
+    anchor_x: "right"
+    anchor_y: "top"
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: 'A'
+        Button:
+            text: 'B'
+##############################################################
+<GridLayoutExample@GridLayout>:
+    rows: 2
+    Button:
+        text: "A"
+        size_hint: .5, .1
+    Button:
+        text: "C"
+    Button:
+        text: "E"
+        size_hint: .5, .1 # è la stessa colonna della A
+    Button:
+        text: "F"
+    Button:
+        text: "G"
+##############################################################
+<StackLayoutExample>:
+    padding: ("20dp", "20dp", "20dp", "20dp")
+    spacing: "20dp", "20dp"
+    Button:
+        text: 'A'
+        size_hint: .2,.2
+    Button:
+        text: 'B'
+        size_hint: .2,.2
+    Button:
+        text: 'C'
+        size_hint: .2,.2
+    Button:
+        text: 'D'
+        size_hint: .2,.2
+    Button:
+        text: 'E'
+        size_hint: .2,.2
+    Button:
+        text: 'F'
+        size_hint: .2,.2
+##############################################################
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None
+        height: self.minimum_height
+##############################################################
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+        canvas.before:
+            Color:
+                rgba: 0,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    BoxLayoutExample:
+        canvas.before:
+            Color:
+                rgba: 0,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    AnchorLayoutExample:
+        canvas.before:
+            Color:
+                rgba: 0,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    GridLayoutExample:
+        canvas.before:
+            Color:
+                rgba: 0,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+##############################################################
+<MainCalcLayout@BoxLayout>:
+    canvas:
+        Color:
+            rgba: 38 / 255.0, 50 / 255.0, 56 / 255.0, 0.8
+        Rectangle:
+            size: self.size
+            pos:self.pos
+
+    orientation: 'vertical'
+    CalcBoxLayout:
+    Label:
+        id: label_count
+        size_hint: 1, .3
+        text: '0'
+        text_size: self.size
+        halign: "right"
+        valign: 'middle'
+        font_size: self.height - 100
+        color: 1,1,1,1
+    TabCalcLayout:
+
+<CalcBoxLayout@BoxLayout>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: icon_settings_topbar.height
+    pos_hint: {'center_x': .5, 'center_y': .95}
+    MDIconButton:
+        id: icon_settings_topbar
+        icon: "settings-helper"
+        theme_icon_color: 'Custom'
+        icon_color: 1,1,1,1
+
+    Label:
+        id: label_top
+        text: 'Standard'
+        bold: True
+        color: 0,0,0,1
+        pos_hint: {'x': 60 }
+        color: 1,1,1,1
+
+<TabCalcLayout@GridLayout>:
+    rows: 6
+    cols: 4
+    spacing: '2dp'
+    padding: '2dp'
+    Button:
+        text: '%'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: 'CE'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: 'C'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '<-'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '1/x'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: 'x*x'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: 'sqrt(x)'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '/'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '7'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '8'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '9'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: 'X'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '4'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '5'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '6'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '-'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '1'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '2'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '3'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '+'
+        background_color: 105/255.0, 105/255.0, 105/255.0, 1
+    Button:
+        text: '+/-'
+        background_color: 0/255.0, 0/255.0, 0/255.0, 1
+    Button:
+        text: '0'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '.'
+        background_color: 50/255.0, 50/255.0, 50/255.0, 1
+    Button:
+        text: '='
+        background_color: 26/255.0, 132/255.0, 182/255.0, 1

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <!-- meta permette di visualizzare i caratteri particolari è, à, ...-->
+        <!-- charset è una proprietà -->
+        <meta charset="UTF-8">
+        <title> HTML example</title>
+    </head>
+
+    <body>
+        <h1 align="center"> My first page </h1>
+        <!-- p è per il paragrafo-->
+        <!-- style permette di aggiungere proprietà CSS-->
+        <!-- span applica qualcosina in parte del paragrafo-->
+        <p style="color: red; background-color: yellow">This is my o questo è il mio <b>first paragraph. <span style="color: blue">Appena scritto</span></b></p> <!-- b è per il grassetto-->
+        <br> <!-- br è per linea vuota-->
+            <!-- a viene usato per i link
+                 href è la propietà in cui scrivere il link
+                 target="_blank" fa aprire il sito in una nuova tab -->
+            <a href="https://google.com" target="_blank">Go to google</a>
+        <br>
+            <!-- Inserisco un'immagine presa da google -->
+            <!-- height e width sono espressi in pixel-->
+            <img height="200" src="https://ae01.alicdn.com/kf/HTB1kqMsQVXXXXcGXpXXq6xXFXXXz/
+            Deli-18-12-24-36-colori-pennarelli-colorati-lavabili-pennarelli-per-
+            pittura-set-da-disegno-per.jpg">
+        <br>
+            <!-- Posso anche far si che l'immagine sia un link -->
+             <a href="second_page.html" target="_blank"><img height="200" src="https://www.buttalapasta.it/wp-content/uploads/2017/10/torta-cioccolato.jpg"></a>
+        <br>
+        <p>Here there is a <i>second par</i></p> <!-- i è per il corsivo-->
+        <!-- pre è per il preformed text, descritto nello spazio-->
+        <pre>
+    Questo testo
+            è preformato
+        quindi mantiene
+      Lo spazio che ho dato
+        </pre>
+
+        <!-- LISTS
+          - unordered lists >ul>
+          - ordered lists <ol>
+          - list item <li> -->
+
+        <br>
+        <!-- div permette di dare una proprietà ad un gruppo di elmenti
+         come ad esempio le due liste-->
+        <div style="background-color: black; color: white">
+        <!-- bulleted list -->
+            <ul>
+                <li>Blue</li>
+                <li>White</li>
+                <li>Black</li>
+            </ul>
+
+            <br>
+            <!-- numerated list -->
+            <ol>
+                <li>Blue</li>
+                <li>White</li>
+                <li>Black</li>
+            </ol>
+        </div>>
+        <!-- TABLES
+          - row: tr
+            - header: th
+            - cell / data: td
+        -->
+        <!-- border da il bordo della tabella -->
+    <table border="2">
+        <tr>
+            <th>Article</th>
+            <th>Price</th>
+        </tr>
+        <!-- Praticamente definisci una linea (tr) e tutte le colonne di quella linea (td) -->
+        <tr>
+            <td>Chocolate</td>
+            <td>2 €</td>
+            <td>Bio</td>
+        </tr>
+        <tr>
+            <td>Sugar</td>
+            <td>0.1 €</td>
+            <td>White</td>
+        </tr>
+        <tr>
+            <td>Butter</td><td>0.5 €</td><td>Fat</td>
+        </tr>
+    </table>
+     <br> <br> <br> <br>
+
+    </body>
+</html>

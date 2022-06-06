@@ -1,0 +1,158 @@
+<CanvasExamplesTabs@TabbedPanel>:
+    do_default_tab: False #elimina la tab di default, quindi ci sta sempre bene
+    TabbedPanelItem:
+        text: "Canvas 1"
+        CanvasExample1:
+    TabbedPanelItem:
+        text: "Canvas 2"
+        CanvasExample2:
+    TabbedPanelItem:
+        text: "Canvas 3"
+        CanvasExample3:
+    TabbedPanelItem:
+        text: "Canvas 4"
+        CanvasExample4:
+    TabbedPanelItem:
+        text: "Canvas 5"
+        CanvasExample5:
+    TabbedPanelItem:
+        text: "Canvas 6"
+        CanvasExample6:
+    TabbedPanelItem:
+        text: "Canvas 7"
+        CanvasExample7
+
+#:set s dp(150)
+
+<CanvasExample1>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            id: rect
+            size: s, s
+            pos: self.center_x -s/2, self.center_y -s/2
+        Ellipse:
+            pos: 100, 200
+            size: s, s/2
+        Line:
+            points: (0, 0, 100, 100, 200, 0, self.width, 100)
+        Line:
+            points: (0, self.height, self.width * 1/4, self.height - s, self.width * 2/4, self.height, self.width * 3/4, self.height - s,self.width, self.height)
+            width: 3
+
+<CanvasExample2>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            points: (self.width/2, 0, self.width/2, self.height)
+            width: 2
+        Line:
+            points: (0, self.height/2, self.width, self.height/2)
+            width: 2
+        Ellipse:
+            size: 50, 50
+            pos: self.center_x - 25, self.center_y - 25
+
+<CanvasExample3>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            circle: (200, 200, 100)
+            width: 2
+        Color:
+            rgb: 1,0,0,.3
+        Line:
+            ellipse: (500, 300, 100, 200)
+            width: 4
+        Color:
+            rgba: 0,0,1, 1
+        Line:
+            rectangle: (800, 100 , 300, 200)
+
+<CanvasExample4>:
+    Button:
+        pos: 100, 100
+        size: 40, 40
+        text: "A"
+        on_press: root.move_rect()
+
+<CanvasExample6>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    RelativeLayout:
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+        pos: 100, 100
+
+<CanvasExample7>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        size: root.size
+        Button:
+            canvas:
+                Color:
+                    rgba: 1,1,0,1
+                Line:
+                    rectangle: (10,10,self.width -20, self.height - 20)
+            text: 'A'
+        Button:
+            text: 'B'
+
+<CanvasExample8@GridLayout>:
+    cols: 3
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    RelativeLayout:
+        canvas:
+            Color:
+                rgba: 0,1,0,1
+            Rectangle:
+                size: self.size
+
+    RelativeLayout:
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.size
+
+    RelativeLayout:
+        canvas:
+            Color:
+                rgba: 1,0,0,1
+            Rectangle:
+                size: self.size

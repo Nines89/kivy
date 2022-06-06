@@ -1,0 +1,18 @@
+<BoxLayoutWithActionBar>:
+    orientation: 'vertical'
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title: root.title
+                #lo schema di richiamo è:
+                #MyScreenManager --> Screen --> BoxLayoutWithActionBar
+                # Parent      --> Parent --> root
+                #on_release: root.parent.parent.pop()
+                #ma avendo adesso un app da buildare:
+                on_release: app.manager.pop()
+                #cambiamo l'icona di kivy
+                #se non si vogliono icone
+                app_icon: ''
+                #app_icon: "images/logo_scr.png"
+                app_icon_height: "30dp"
+                app_icon_width: "30dp"

@@ -1,0 +1,99 @@
+#: import layout_examples layout_examples
+#: import widget_examples widget_examples
+#: import navigation_screen_manager navigation_screen_manager
+#: import boxlayout_with_action_bar boxlayout_with_action_bar
+#: import canvas_examples canvas_examples
+
+##########################ESERCIZIO###########################
+#crea un menu
+
+<MainMenu>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Screen:
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Page Layout'
+                on_press: app.manager.push('pageLayout')
+            Button:
+                text: 'Widget'
+                on_press: app.manager.push('widget')
+            Button:
+                text: 'Calculator'
+                on_press: app.manager.push('calc')
+            Button:
+                text: 'Canvas'
+                on_press: app.manager.push('canv')
+    Screen:
+        name: 'pageLayout'
+        BoxLayoutWithActionBar:
+            title: 'Layouts'
+            LayoutExamplesTabs:
+
+    Screen:
+        name: 'widget'
+        BoxLayoutWithActionBar:
+            title: 'Widget'
+            CounterExample:
+
+    Screen:
+        name: 'calc'
+        BoxLayoutWithActionBar:
+            title: 'Calculator'
+            MainCalcLayout:
+
+    Screen:
+        name: 'canv'
+        BoxLayoutWithActionBar:
+            title: 'Canvas'
+            CanvasExamplesTabs:
+
+
+
+
+<MyScreenManager>: #@NavigationScreenManager>: questa parte non mi serve più
+                   #visto che ho le dichiarazioni nel .py
+    Screen: #questo è un widget
+        name: "screen1" #ogni screen deve avere un nome
+        #root.pop e root. push si riferiscono a NavigationScreenManager occhio che è importante
+        BoxLayout:
+            Button:
+                text: "Go to Calculator"
+                #root si riferisce allo screen manager evidentemente. Molto bella questa cosa
+                #devo settarlo in entrambe perché direction è una variabile globale
+                #on_press: root.push('calculating')
+                on_press: app.manager.push('calculating')
+            Button:
+                text: "Go to Screen 3"
+                #on_press: root.push('screen3')
+                on_press: app.manager.push('screen3')
+
+    Screen:
+        #Aadesso vediamo le action bar... top
+        name: "calculating"
+        BoxLayoutWithActionBar:
+        #per gestire il titolo diverso lo facciamo in box_layout_with_action_bar
+        #ma dobbiamo definire il titolo qui
+            title: "CALCOLATOR"
+            MainCalcLayout:
+
+    Screen: #questo è un widget
+        name: "screen2" #ogni screen deve avere un nome
+        Button:
+            text: "Button2"
+            #trasnition cambia ovviamente la transizione
+            #ho la necessità di scrivere due istruzioni, quindi le separo con il punto e virgola
+            on_press: root.pop()
+
+    Screen:
+        name: "screen3"
+        Button:
+            text: "Button3"
+            #root.previous() mi porta alla pagina precedentemente definita (screen2)
+            on_press: root.pop()
+
