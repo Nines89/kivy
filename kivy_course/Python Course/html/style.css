@@ -1,0 +1,182 @@
+body {
+            background-color: #8BA1BB;
+            font-family: Arial;
+        }
+
+        /*
+         Lo star da la proprietà a tutti gli elementi
+         è meglio mettere le cose generiche all'inizio
+        */
+        *{
+            overflow: auto;
+        }
+        .top{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p#category {
+            background-color: black;
+            color: white;
+            display: inline-block;
+            margin-left: 30px;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        div.pos_rec{
+            text-align: center;
+            margin-bottom: -20px;
+        }
+        /*overflow: auto copre tutto con il rettangolo bianco
+        è un po' una magia... però funziona top!
+        box-shadow: offset-x offset-y blur spread color-rgba;
+        */
+        div.content{
+            background-color: white;
+            margin: 0% 5% 9% 5%;
+            padding: 30px;
+            box-shadow: 0px 0px 8px 1px black;
+            /*overflow: auto;*/
+        }
+
+        p.description {
+            text-align: center;
+            display: inline-block;
+            max-width: 400px
+        }
+
+        div.description{
+            text-align: center;
+        }
+
+        div.separator{
+            width: 100px;
+            height: 1px;
+            background-color: black;
+            margin-left: auto;
+            margin-right: auto;
+            }
+
+        .center{
+            width: 100%
+        }
+        div.info{
+            position: relative;
+        }
+        table.info{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            background-color: #6C829DB2;
+            height: 80px;
+        }
+
+        table.info td{
+            text-align: center;
+            vertical-align: top;
+            font-size: 12px;
+        }
+
+        table.info th{
+            text-align: center;
+            vertical-align: bottom;
+            padding-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /*
+          display block: vede il blocco e le sue modifiche
+          max-height: limita l'altezza
+          object-fit: cover --> sistema l'immagine, tagliandola in base a quanto si deve mostrare
+          le ultime due istruzioni servono per non mostrare una porcheria durante il caricamento della pagina
+          */
+        img.info{
+            display: block;
+            max-height: 400px;
+            object-fit: cover;
+
+            min-height:200px;
+            background-color: lightgrey;
+        }
+
+        div.col{
+            width: 45%;
+            margin-top: 40px;
+        }
+
+        div.col h2{
+              text-align: center;
+              text-transform: uppercase;
+              font-size: 28px;
+              border-bottom: 5px solid #6C829D;
+              padding-bottom: 5px;
+        }
+
+        /*
+          avendo messo una larghezza delle colonne del 45% in div.col
+          mi deve essere rimasto un 10 % che inseriscosco come margin-right
+        */
+        div.col1{
+            float: left;
+            margin-right: 10%;
+        }
+        /*
+         float permette ad un blocco di essere visualizzato flottante
+         in questo caso a destra. Se non si fanno modifiche alla prima colonna però
+         verrà sempre visualizzato sotto di essa, perché la prima occupa tutto lo spazio
+        */
+        div.col2{
+            float: right;
+        }
+
+        div.ing p{
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid lightgrey;
+            padding: 4px 0;
+            margin-top: 4px;
+            margin-bottom:2px;
+        }
+
+        /*
+         box-sizing: border-box mantiene le iniziali dimensioni del box
+         senza considerare il padding
+         border-radius: 50%; trasforma i quadrati attorno ai numeri in cerchi
+        */
+
+        table.instruction p.numer{
+            background-color: #6C829D;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            padding-top: 4px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            margin: 0;
+        }
+
+        table.instruction td.instruction_steps{
+            font-size: 14px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+
+        table.instruction td{
+            vertical-align: top;
+        }
+
+        /*
+         Dare un'altezza ad una tabella è come dare una minima altezza ad ogni linea
+         ad ogni appunto tr
+        */
+        table.instruction tr{
+            height: 40px;
+        }
