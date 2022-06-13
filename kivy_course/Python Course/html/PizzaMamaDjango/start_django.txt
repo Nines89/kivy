@@ -1,0 +1,56 @@
+Sul prompt:
+    1 -- ci serve un venv
+        in pycharm: File --> New Project --> New environment using = Virtualenv
+        - comparirà la cartella venv nel progetto
+
+    1 -- installa django in project/venv
+        $: pip install django
+
+    2 -- crea un progetto django
+        $: django-admin startproject project-name
+        - comparirà la cartella project-name allo stesso livello di venv
+
+    3 -- muoversi tra le cartelle del progetto:
+       - vedere la directory in cui siamo
+            $: pwd
+       -  muoversi nella cartella creata da django
+            $: cd project-name
+       - vedere i file contenuti
+            $: ls
+       - far partire il server
+            $: python manage.py runserver
+
+    4 -- iniziare una django app
+        $: python manage.py startapp app-name
+
+    5 -- inizializzare il db:
+        - aprire models.py in app-name folder
+
+    6 -- migrare il database:
+        - aggiungere in settings.py sotto INSTALLED_APPS
+        - nome-app.apps.nome-appConfig
+        - ora è possibile creare la migrazione
+        $: python manage.py makemigrations
+        - otteniamo una nuova cartella migration sotto app-name folder
+
+    7 -- applicare la migrazione al database:
+        $: python manage.py migrate
+        - si creerà un file nella folder project-name db.sqlite3
+        N.B. se modifichi il modello del database, bisogna ripetere i punti 6 e 7
+
+    8 -- admin interface
+        - creiamo log in admin data
+        $: python manage.py createsuperuser
+        #user: admin
+        #password: admin
+        - facciamo il run del server ed apriamo l'indirizzo
+        - nella barra dell'indirizzo aggiungiamo /admin
+        - registriamo il modello per farlo comparire nella sezione admin
+        - aprire admin.py ed add from .models import class-name (Pizza)
+
+    9 -- aggiungere pizze al database dalla sezione admin
+
+    10 - creare una internet view da views.py
+        - creare in app-name folder (menu) urls.py
+        - se si seguono bene le istruzioni abbiamo creato una nuova
+          pagina (http://127.0.0.1:8000/menu/)
